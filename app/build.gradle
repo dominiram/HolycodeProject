@@ -88,4 +88,7 @@ dependencies {
 
     // shared preferences
     implementation 'androidx.preference:preference-ktx:1.1.1'
+
+    // progress bar with animation
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 }

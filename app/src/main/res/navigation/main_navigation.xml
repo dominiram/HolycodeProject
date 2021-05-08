@@ -18,5 +18,9 @@
         android:id="@+id/userFragment"
         android:name="app.naum.myapplication.views.UserFragment"
         android:label="fragment_user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_userFragment_to_enterUserFragment"
+            app:destination="@id/enterUserFragment" />
+    </fragment>
 </navigation>

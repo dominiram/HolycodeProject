@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.naum.myapplication.models.UserModel
+import app.naum.myapplication.networking.entities.UserInfoNetworkEntity
 import app.naum.myapplication.repository.SearchUserRepository
 import app.naum.myapplication.utils.DataState
 import dagger.hilt.android.lifecycle.HiltViewModel

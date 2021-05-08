@@ -26,7 +26,7 @@ object RetrofitModule {
     @Provides
     fun provideRetrofitBuilder(gson: Gson): Retrofit.Builder {
         return Retrofit.Builder()
-            .baseUrl("https://api.github.com/users/")
+            .baseUrl("https://api.github.com/")
             .addConverterFactory(GsonConverterFactory.create(gson))
     }
 

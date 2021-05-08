@@ -5,6 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface SearchUserService {
-    @GET("{user}")
-    suspend fun getUserInfo(@Path("user") user: String) : UserInfoNetworkEntity
+    @GET("users/{user}")
+    suspend fun getUserInfo(@Path("user") user: String): UserInfoNetworkEntity
 }
