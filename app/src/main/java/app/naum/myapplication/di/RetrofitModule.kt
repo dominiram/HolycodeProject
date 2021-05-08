@@ -1,5 +1,6 @@
 package app.naum.myapplication.di
 
+import app.naum.myapplication.networking.SearchUserService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -27,5 +28,13 @@ object RetrofitModule {
         return Retrofit.Builder()
             .baseUrl("https://api.github.com/users/")
             .addConverterFactory(GsonConverterFactory.create(gson))
+    }
+
+    @Singleton
+    @Provides
+    fun provideSearchUserService(retrofitBuilder: Retrofit.Builder) : SearchUserService {
+        return retrofitBuilder
+            .build()
+            .create(SearchUserService::class.java)
     }
 }

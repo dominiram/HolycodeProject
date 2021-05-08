@@ -57,19 +57,12 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
     // hilt
-    def hilt_version = '2.31.2-alpha'
-
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
     // hilt for navigation
     def hilt_for_navigation_version = "1.0.0"
     implementation "androidx.hilt:hilt-navigation-fragment:$hilt_for_navigation_version"
-
-    // hilt for viewModel
-    def hilt_viewmodel_version = "1.0.0-alpha03"
-    kapt "androidx.hilt:hilt-compiler:$hilt_viewmodel_version"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodel_version"
 
     // room
     def room_version = "2.3.0"

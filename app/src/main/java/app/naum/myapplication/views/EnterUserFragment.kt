@@ -15,7 +15,9 @@ import app.naum.myapplication.R
 import app.naum.myapplication.databinding.FragmentEnterUserBinding
 import app.naum.myapplication.utils.DataState
 import app.naum.myapplication.viewmodels.EnterUserViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EnterUserFragment : Fragment() {
 
     private val TAG = "EnterUserFragment"
@@ -56,7 +58,9 @@ class EnterUserFragment : Fragment() {
                 is DataState.Success -> {
                     Log.d(TAG, "subscribeToObservables: user = "
                         +it.data.toString())
-                    val direction: NavDirections = EnterUserDirections
+                    val direction: NavDirections =
+                        EnterUserFragmentDirections
+                            .actionEnterUserFragmentToUserFragment()
                     navController.navigate(direction)
                 }
             }
