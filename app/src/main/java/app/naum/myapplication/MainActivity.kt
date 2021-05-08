@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity() {
                 ?.findFragmentById(R.id.hostFragment) as BaseFragment)
     }
 
-//    override fun onBackPressed() {
-////        super.onBackPressed()
-//        Log.d(TAG, "onBackPressed: currentFrag = $currentFragment")
-//        currentFragment.handleOnBackPressed()
-//    }
+    override fun onBackPressed() {
+//        super.onBackPressed()
+        Log.d(TAG, "onBackPressed: currentFrag = $currentFragment")
+        currentFragment.handleOnBackPressed()
+    }
 }

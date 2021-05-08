@@ -41,23 +41,9 @@ class UserDetailsFragment : BaseFragment() {
 
     @SuppressLint("RestrictedApi")
     override fun handleOnBackPressed() {
-        Log.d(TAG, "handleOnBackPressed:navController.backStack.first.toString() = "
-                +navController.backStack.first.toString())
-        Log.d(TAG, "handleOnBackPressed:navController.backStack.last.toString() = "
-                +navController.backStack.last.toString())
-        Log.d(TAG, "handleOnBackPressed: navController.currentDestination"
-                +navController.currentDestination)
-        Log.d(TAG, "handleOnBackPressed:navController.graph.toString() = "
-                +navController.graph.toString())
-        Log.d(TAG, "handleOnBackPressed:navController.currentDestination.toString() = "
-                +navController.currentDestination.toString())
-        if (!navController.navigateUp())
-            Log.d(TAG, "handleOnBackPressed: unable to navigate up")
-        if(!navController.popBackStack())
-            Log.d(TAG, "handleOnBackPressed: unable to popBackStack")
-//        val direction: NavDirections = UserDetailsFragmentDirections
-//            .actionUserDetailsFragmentToEnterUserFragment()
-//        navController.navigate(direction)
+        val direction: NavDirections = UserDetailsFragmentDirections
+            .actionUserDetailsFragmentToEnterUserFragment()
+        navController.navigate(direction)
     }
 
     override fun onDestroy() {

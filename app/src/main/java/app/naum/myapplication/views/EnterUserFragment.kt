@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import app.naum.myapplication.MainActivity
 import app.naum.myapplication.R
 import app.naum.myapplication.databinding.FragmentEnterUserBinding
@@ -46,13 +47,15 @@ class EnterUserFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity as MainActivity).setCurrentFrag()
         navController = findNavController()
-        subscribeToObservables()
-        binding.btnSearchUser.setOnClickListener{
+            subscribeToObservables()
+        binding.btnSearchUser.setOnClickListener {
             viewModel.getSearchUserInfo(binding.etUsername.text.toString())
         }
     }
 
     private fun subscribeToObservables() {
+
+        if(!viewModel.userState.hasObservers())
         viewModel.userState.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is DataState.Error -> {
