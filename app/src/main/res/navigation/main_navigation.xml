@@ -11,16 +11,16 @@
         android:label="fragment_enter_user"
         tools:layout="@layout/fragment_enter_user" >
         <action
-            android:id="@+id/action_enterUserFragment_to_userFragment"
-            app:destination="@id/userFragment" />
+            android:id="@+id/action_enterUserFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/userFragment"
-        android:name="app.naum.myapplication.views.UserFragment"
+        android:id="@+id/userDetailsFragment"
+        android:name="app.naum.myapplication.views.UserDetailsFragment"
         android:label="fragment_user"
         tools:layout="@layout/fragment_user" >
         <action
-            android:id="@+id/action_userFragment_to_enterUserFragment"
+            android:id="@+id/action_userDetailsFragment_to_enterUserFragment"
             app:destination="@id/enterUserFragment" />
     </fragment>
 </navigation>
