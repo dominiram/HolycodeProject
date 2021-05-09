@@ -9,4 +9,5 @@
     <string name="you_cant_go_back">You can\'t go back, this is the first view</string>
     <string name="user_details_name_label">"Name: </string>
     <string name="user_details_company_label">"Company: </string>
+    <string name="user_repos">User repos</string>
 </resources>

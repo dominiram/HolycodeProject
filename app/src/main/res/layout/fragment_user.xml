@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_side"
-        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top_small"
         android:text="@string/user_details_name_label"
         android:textSize="@dimen/ui_elements_text_size"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_side_xsmal"
-        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top_small"
         android:layout_marginEnd="@dimen/margin_side"
         android:textSize="@dimen/ui_elements_text_size"
         app:layout_constraintLeft_toRightOf="@+id/tvNameLabel"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_side"
-        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top_small"
         android:text="@string/user_details_company_label"
         android:textSize="@dimen/ui_elements_text_size"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,11 +54,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_side_xsmal"
-        android:layout_marginTop="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top_small"
         android:layout_marginEnd="@dimen/margin_side"
         android:textSize="@dimen/ui_elements_text_size"
         app:layout_constraintLeft_toRightOf="@+id/tvCompanyLabel"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <Button
+        android:id="@+id/btnUserRepos"
+        style="@style/buttonRegular"
+        android:text="@string/user_repos"
+        android:layout_marginStart="@dimen/margin_side_xlarge"
+        android:layout_marginTop="@dimen/margin_top_medium"
+        android:layout_marginEnd="@dimen/margin_side_xlarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCompany" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

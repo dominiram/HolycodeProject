@@ -48,6 +48,12 @@ class UserDetailsFragment : BaseFragment() {
 
         binding.tvName.text = args.name
         binding.tvCompany.text = args.company
+
+        binding.btnUserRepos.setOnClickListener {
+            val directions: NavDirections = UserDetailsFragmentDirections
+                .actionUserDetailsFragmentToUserReposFragment()
+            navController.navigate(directions)
+        }
     }
 
     @SuppressLint("RestrictedApi")
