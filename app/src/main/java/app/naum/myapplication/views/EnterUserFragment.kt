@@ -79,7 +79,11 @@ class EnterUserFragment : BaseFragment() {
                     //if firstTimeObserving...
                     val direction: NavDirections =
                         EnterUserFragmentDirections
-                            .actionEnterUserFragmentToUserDetailsFragment()
+                            .actionEnterUserFragmentToUserDetailsFragment(
+                                it.data.avatar_url,
+                                it.data.name?: "",
+                                it.data.company?: ""
+                            )
                     navController.navigate(direction)
 //                    firstTimeObersving = false
                 }

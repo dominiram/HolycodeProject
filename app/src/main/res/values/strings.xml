@@ -7,4 +7,6 @@
     <string name="error_get_user_info">An error occurred while trying to get the user</string>
     <string name="progress_bar_image_description">Progress bar description</string>
     <string name="you_cant_go_back">You can\'t go back, this is the first view</string>
+    <string name="user_details_name_label">"Name: </string>
+    <string name="user_details_company_label">"Company: </string>
 </resources>

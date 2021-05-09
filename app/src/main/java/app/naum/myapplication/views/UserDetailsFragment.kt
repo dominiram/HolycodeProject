@@ -10,9 +10,11 @@ import android.widget.Toast
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import app.naum.myapplication.MainActivity
 import app.naum.myapplication.R
 import app.naum.myapplication.databinding.FragmentUserBinding
+import com.bumptech.glide.Glide
 
 class UserDetailsFragment : BaseFragment() {
 
@@ -37,6 +39,15 @@ class UserDetailsFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity as MainActivity).setCurrentFrag()
         navController = findNavController()
+
+        val args: UserDetailsFragmentArgs by navArgs()
+        Glide
+            .with(requireContext())
+            .load(args.avatarUrl)
+            .into(binding.avatar)
+
+        binding.tvName.text = args.name
+        binding.tvCompany.text = args.company
     }
 
     @SuppressLint("RestrictedApi")

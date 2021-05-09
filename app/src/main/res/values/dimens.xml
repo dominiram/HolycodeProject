@@ -5,4 +5,7 @@
     <dimen name="margin_top_start">80dp</dimen>
     <dimen name="ui_elements_text_size">16sp</dimen>
     <dimen name="margin_side_large">80dp</dimen>
+    <dimen name="avatar_height">80dp</dimen>
+    <dimen name="avatar_width">80dp</dimen>
+    <dimen name="margin_side_xsmal">4dp</dimen>
 </resources>
