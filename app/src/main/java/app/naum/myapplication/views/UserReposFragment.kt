@@ -5,11 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import app.naum.myapplication.MainActivity
 import app.naum.myapplication.R
 import app.naum.myapplication.databinding.FragmentUserReposBinding
@@ -69,6 +74,12 @@ class UserReposFragment: BaseFragment() {
     private fun populateList(userRepos: List<UserRepoNetworkEntity>) {
         for(repo in userRepos)
             Log.d(TAG, "populateList: repo = $repo")
+
+        binding.repoList.layoutManager = LinearLayoutManager(context)
+        binding.repoList.adapter = RepoListAdapter(userRepos)
+        binding.repoList.addItemDecoration(
+            DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+        )
     }
 
     override fun handleOnBackPressed() {
@@ -78,5 +89,32 @@ class UserReposFragment: BaseFragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    inner class RepoListAdapter(
+        private val repoList: List<UserRepoNetworkEntity>
+    ): RecyclerView.Adapter<RepoListAdapter.RepoListViewHolder>() {
+
+        inner class RepoListViewHolder(view: View): RecyclerView.ViewHolder(view){
+            val repoName: TextView = view.findViewById(R.id.userRepoName)
+            val repoUrl: TextView = view.findViewById(R.id.userRepoUrl)
+            val repoDescription: TextView = view.findViewById(R.id.userRepoDescription)
+            val openIssues: TextView = view.findViewById(R.id.openIssues)
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoListViewHolder {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.user_repo_item, parent, false)
+            return RepoListViewHolder(view)
+        }
+
+        override fun onBindViewHolder(holder: RepoListViewHolder, position: Int) {
+            holder.repoName.text = repoList[position].name
+            holder.repoUrl.text = repoList[position].htmlUrl
+            holder.repoDescription.text = repoList[position].description
+            holder.openIssues.text = repoList[position].issueCount.toString()
+        }
+
+        override fun getItemCount(): Int = repoList.size
     }
 }

@@ -10,5 +10,6 @@ data class UserRepoNetworkEntity(
     @SerializedName("has_issues")
     val hasIssues: Boolean,
     @SerializedName("open_issues_count")
-    val issueCount: Int
+    val issueCount: Int,
+    val description: String
 )

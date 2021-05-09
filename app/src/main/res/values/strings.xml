@@ -11,4 +11,8 @@
     <string name="user_details_company_label">"Company: </string>
     <string name="user_repos">User repos</string>
     <string name="error_get_user_repos">An error occurred while trying to get user repos!</string>
+    <string name="user_repo_label">Repo name:</string>
+    <string name="user_repo_url">Repo url:</string>
+    <string name="user_repo_description">Repo description:</string>
+    <string name="user_repo_open_issues">Open issues:</string>
 </resources>

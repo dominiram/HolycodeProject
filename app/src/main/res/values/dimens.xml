@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_top_small">20dp</dimen>
+    <dimen name="margin_top_small">12dp</dimen>
     <dimen name="margin_side">40dp</dimen>
     <dimen name="margin_top_start">80dp</dimen>
     <dimen name="ui_elements_text_size">16sp</dimen>
     <dimen name="margin_side_large">80dp</dimen>
     <dimen name="avatar_height">80dp</dimen>
     <dimen name="avatar_width">80dp</dimen>
-    <dimen name="margin_side_xsmal">4dp</dimen>
+    <dimen name="margin_side_xsmall">4dp</dimen>
     <dimen name="margin_top_medium">40dp</dimen>
     <dimen name="margin_side_xlarge">120dp</dimen>
+    <dimen name="margin_side_small">12dp</dimen>
 </resources>

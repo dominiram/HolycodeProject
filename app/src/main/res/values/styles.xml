@@ -10,4 +10,19 @@
         <item name="android:text">@string/button_search_user</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
+    <style name="textViewUserRepoRight">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_side_xsmall</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_small</item>
+        <item name="android:layout_marginEnd">@dimen/margin_side_large</item>
+    </style>
+
+    <style name="textViewUserRepoLeft">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/margin_side_small</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_small</item>
+    </style>
 </resources>

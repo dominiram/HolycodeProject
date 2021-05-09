@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/userRepoNameLabel"
+        style="@style/textViewUserRepoLeft"
+        android:text="@string/user_repo_label"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userRepoName"
+        style="@style/textViewUserRepoRight"
+        app:layout_constraintLeft_toRightOf="@+id/userRepoDescriptionLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userRepoUrlLabel"
+        style="@style/textViewUserRepoLeft"
+        android:text="@string/user_repo_url"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userRepoNameLabel" />
+
+    <TextView
+        android:id="@+id/userRepoUrl"
+        style="@style/textViewUserRepoRight"
+        app:layout_constraintLeft_toRightOf="@+id/userRepoDescriptionLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userRepoName" />
+
+    <TextView
+        android:id="@+id/userRepoDescriptionLabel"
+        style="@style/textViewUserRepoLeft"
+        android:text="@string/user_repo_description"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userRepoUrlLabel" />
+
+    <TextView
+        android:id="@+id/userRepoDescription"
+        style="@style/textViewUserRepoRight"
+        app:layout_constraintLeft_toRightOf="@+id/userRepoDescriptionLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userRepoUrl" />
+
+    <TextView
+        android:id="@+id/openIssuesLabel"
+        style="@style/textViewUserRepoLeft"
+        android:text="@string/user_repo_open_issues"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userRepoDescriptionLabel" />
+
+    <TextView
+        android:id="@+id/openIssues"
+        style="@style/textViewUserRepoRight"
+        app:layout_constraintLeft_toRightOf="@+id/userRepoDescriptionLabel"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userRepoDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
