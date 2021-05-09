@@ -1,8 +1,8 @@
 package app.naum.myapplication.di
 
 import app.naum.myapplication.networking.SearchUserNetworkMapper
-import app.naum.myapplication.networking.SearchUserService
-import app.naum.myapplication.repository.SearchUserRepository
+import app.naum.myapplication.networking.UserService
+import app.naum.myapplication.repository.UserRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,10 +16,10 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun provideSearchUserRepository(
-        service: SearchUserService,
+        service: UserService,
         mapper: SearchUserNetworkMapper
-    ): SearchUserRepository{
-        return SearchUserRepository(
+    ): UserRepository{
+        return UserRepository(
             service,
             mapper
         )

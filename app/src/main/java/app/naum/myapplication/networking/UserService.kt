@@ -5,7 +5,7 @@ import app.naum.myapplication.networking.entities.UserRepoNetworkEntity
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface SearchUserService {
+interface UserService {
     @GET("users/{user}")
     suspend fun getUserInfo(@Path("user") user: String): UserInfoNetworkEntity
 

@@ -6,32 +6,28 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import app.naum.myapplication.MainActivity
-import app.naum.myapplication.R
 import app.naum.myapplication.databinding.FragmentUserBinding
+import app.naum.myapplication.viewmodels.UserReposViewModel
 import com.bumptech.glide.Glide
 
 class UserDetailsFragment : BaseFragment() {
 
     private val TAG = "UserDetailsFragment"
+    private val viewModel: UserReposViewModel by viewModels()
     lateinit var navController: NavController
     private var _binding: FragmentUserBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentUserBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -50,9 +46,10 @@ class UserDetailsFragment : BaseFragment() {
         binding.tvCompany.text = args.company
 
         binding.btnUserRepos.setOnClickListener {
-            val directions: NavDirections = UserDetailsFragmentDirections
-                .actionUserDetailsFragmentToUserReposFragment()
-            navController.navigate(directions)
+            val args: UserDetailsFragmentArgs by navArgs()
+            val direction: NavDirections = UserDetailsFragmentDirections
+                .actionUserDetailsFragmentToUserReposFragment(args.user)
+            navController.navigate(direction)
         }
     }
 

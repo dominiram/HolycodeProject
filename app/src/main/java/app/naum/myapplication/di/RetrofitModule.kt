@@ -1,6 +1,6 @@
 package app.naum.myapplication.di
 
-import app.naum.myapplication.networking.SearchUserService
+import app.naum.myapplication.networking.UserService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -32,9 +32,9 @@ object RetrofitModule {
 
     @Singleton
     @Provides
-    fun provideSearchUserService(retrofitBuilder: Retrofit.Builder) : SearchUserService {
+    fun provideSearchUserService(retrofitBuilder: Retrofit.Builder) : UserService {
         return retrofitBuilder
             .build()
-            .create(SearchUserService::class.java)
+            .create(UserService::class.java)
     }
 }

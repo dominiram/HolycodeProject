@@ -47,7 +47,7 @@ class EnterUserFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity as MainActivity).setCurrentFrag()
         navController = findNavController()
-            subscribeToObservables()
+        subscribeToObservables()
         binding.btnSearchUser.setOnClickListener {
             viewModel.getSearchUserInfo(binding.etUsername.text.toString())
         }
@@ -56,7 +56,7 @@ class EnterUserFragment : BaseFragment() {
     private fun subscribeToObservables() {
 
         if(!viewModel.userState.hasObservers())
-        viewModel.userState.observe(viewLifecycleOwner, Observer {
+        viewModel.userState.observe(viewLifecycleOwner, {
             when (it) {
                 is DataState.Error -> {
                     (activity as MainActivity).hideProgressBar()
@@ -82,7 +82,8 @@ class EnterUserFragment : BaseFragment() {
                             .actionEnterUserFragmentToUserDetailsFragment(
                                 it.data.avatar_url,
                                 it.data.name?: "",
-                                it.data.company?: ""
+                                it.data.company?: "",
+                                binding.etUsername.text.toString()
                             )
                     navController.navigate(direction)
 //                    firstTimeObersving = false
