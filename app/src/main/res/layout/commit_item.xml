@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/commitAuthorLabel"
+            style="@style/textViewUserRepoLeft"
+            android:text="@string/commit_author"
+            app:layout_constraintBottom_toBottomOf="@+id/commitAuthor"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/commitAuthor" />
+
+        <TextView
+            android:id="@+id/commitAuthor"
+            style="@style/textViewUserRepoRight"
+            app:layout_constraintLeft_toRightOf="@+id/commitMessageLabel"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/committerLabel"
+            style="@style/textViewUserRepoLeft"
+            android:text="@string/committer"
+            app:layout_constraintBottom_toBottomOf="@+id/committer"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/committer" />
+
+        <TextView
+            android:id="@+id/committer"
+            style="@style/textViewUserRepoRight"
+            app:layout_constraintLeft_toRightOf="@+id/commitMessageLabel"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commitAuthor" />
+
+        <TextView
+            android:id="@+id/commitMessageLabel"
+            style="@style/textViewUserRepoLeft"
+            android:text="@string/commit_message"
+            app:layout_constraintBottom_toBottomOf="@+id/commitMessage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/commitMessage" />
+
+        <TextView
+            android:id="@+id/commitMessage"
+            style="@style/textViewUserRepoRight"
+            app:layout_constraintLeft_toRightOf="@+id/commitMessageLabel"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/committer" />
+
+        <TextView
+            android:id="@+id/commitDateLabel"
+            style="@style/textViewUserRepoLeft"
+            android:text="@string/commit_date"
+            app:layout_constraintBottom_toBottomOf="@+id/commitDate"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/commitDate" />
+
+        <TextView
+            android:id="@+id/commitDate"
+            style="@style/textViewUserRepoRight"
+            app:layout_constraintLeft_toRightOf="@+id/commitMessageLabel"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commitMessage" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentsList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/margin_top_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commitDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

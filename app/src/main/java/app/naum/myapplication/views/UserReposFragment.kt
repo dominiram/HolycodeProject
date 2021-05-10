@@ -6,11 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -101,6 +103,7 @@ class UserReposFragment: BaseFragment() {
             val repoUrl: TextView = view.findViewById(R.id.userRepoUrl)
             val repoDescription: TextView = view.findViewById(R.id.userRepoDescription)
             val openIssues: TextView = view.findViewById(R.id.openIssues)
+            val btnCommitDetails: Button = view.findViewById(R.id.btnCommitDetails)
         }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoListViewHolder {
@@ -114,6 +117,11 @@ class UserReposFragment: BaseFragment() {
             holder.repoUrl.text = repoList[position].htmlUrl
             holder.repoDescription.text = repoList[position].description
             holder.openIssues.text = repoList[position].issueCount.toString()
+            holder.btnCommitDetails.setOnClickListener {
+                val direction: NavDirections = UserReposFragmentDirections
+                    .actionUserReposFragmentToCommitDetailsFragment()
+                navController.navigate(direction)
+            }
         }
 
         override fun getItemCount(): Int = repoList.size

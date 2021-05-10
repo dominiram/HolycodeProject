@@ -15,4 +15,9 @@
     <string name="user_repo_url">Repo url:</string>
     <string name="user_repo_description">Repo description:</string>
     <string name="user_repo_open_issues">Open issues:</string>
+    <string name="commit_details">Commit details:</string>
+    <string name="commit_author">Commit author:</string>
+    <string name="committer">Committer:</string>
+    <string name="commit_message">Commit message:</string>
+    <string name="commit_date">Commit date:</string>
 </resources>
