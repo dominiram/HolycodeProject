@@ -13,7 +13,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class EnterUserViewModel
+class
+EnterUserViewModel
     @Inject
     constructor(
         private val searchUserRepository: UserRepository

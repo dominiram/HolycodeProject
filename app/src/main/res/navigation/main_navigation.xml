@@ -55,5 +55,14 @@
     <fragment
         android:id="@+id/commitDetailsFragment"
         android:name="app.naum.myapplication.views.CommitDetailsFragment"
-        android:label="CommitDetailsFragment" />
+        android:label="CommitDetailsFragment" >
+        <action
+            android:id="@+id/action_commitDetailsFragment_to_userReposFragment"
+            app:destination="@id/userReposFragment" />
+        <argument
+            android:name="repo"
+            app:argType="string" />
+        <argument android:name="user"
+            app:argType="string" />
+    </fragment>
 </navigation>

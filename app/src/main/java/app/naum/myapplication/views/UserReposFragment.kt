@@ -27,7 +27,7 @@ import app.naum.myapplication.viewmodels.UserReposViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class UserReposFragment: BaseFragment() {
+class UserReposFragment : BaseFragment() {
 
     private val TAG = "UserReposFragment"
     private val viewModel: UserReposViewModel by viewModels()
@@ -75,9 +75,6 @@ class UserReposFragment: BaseFragment() {
     }
 
     private fun populateList(userRepos: List<UserRepoNetworkEntity>) {
-        for(repo in userRepos)
-            Log.d(TAG, "populateList: repo = $repo")
-
         binding.repoList.layoutManager = LinearLayoutManager(context)
         binding.repoList.adapter = RepoListAdapter(userRepos)
         binding.repoList.addItemDecoration(
@@ -96,9 +93,9 @@ class UserReposFragment: BaseFragment() {
 
     inner class RepoListAdapter(
         private val repoList: List<UserRepoNetworkEntity>
-    ): RecyclerView.Adapter<RepoListAdapter.RepoListViewHolder>() {
+    ) : RecyclerView.Adapter<RepoListAdapter.RepoListViewHolder>() {
 
-        inner class RepoListViewHolder(view: View): RecyclerView.ViewHolder(view){
+        inner class RepoListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             val repoName: TextView = view.findViewById(R.id.userRepoName)
             val repoUrl: TextView = view.findViewById(R.id.userRepoUrl)
             val repoDescription: TextView = view.findViewById(R.id.userRepoDescription)
@@ -118,8 +115,12 @@ class UserReposFragment: BaseFragment() {
             holder.repoDescription.text = repoList[position].description
             holder.openIssues.text = repoList[position].issueCount.toString()
             holder.btnCommitDetails.setOnClickListener {
+                val args: UserReposFragmentArgs by navArgs()
                 val direction: NavDirections = UserReposFragmentDirections
-                    .actionUserReposFragmentToCommitDetailsFragment()
+                    .actionUserReposFragmentToCommitDetailsFragment(
+                        repoList[position].name,
+                        args.user
+                    )
                 navController.navigate(direction)
             }
         }
