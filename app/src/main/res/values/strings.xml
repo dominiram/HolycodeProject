@@ -21,4 +21,5 @@
     <string name="commit_message">Commit message:</string>
     <string name="commit_date">Commit date:</string>
     <string name="error_get_commits">An error occured while trying to get commits</string>
+    <string name="comment_author">Comment author:</string>
 </resources>

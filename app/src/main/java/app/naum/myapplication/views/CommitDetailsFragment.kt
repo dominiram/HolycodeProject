@@ -15,8 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.naum.myapplication.MainActivity
 import app.naum.myapplication.R
+import app.naum.myapplication.databinding.CommentsItemBinding
 import app.naum.myapplication.databinding.CommitItemBinding
 import app.naum.myapplication.databinding.FragmentCommitDetailsBinding
+import app.naum.myapplication.networking.entities.CommentNetworkEntity
 import app.naum.myapplication.networking.entities.CommitDetailsNetworkEntity
 import app.naum.myapplication.utils.DataState
 import app.naum.myapplication.viewmodels.CommitDetailsViewModel
@@ -108,17 +110,42 @@ class CommitDetailsFragment : BaseFragment() {
         }
 
         override fun onBindViewHolder(holder: CommitListViewHolder, position: Int) {
-            CommitItemBinding.bind(holder.itemView).apply{
+            CommitItemBinding.bind(holder.itemView).apply {
                 commitAuthor.text = commitList[position].commit.author.name
                 committer.text = commitList[position].commit.committer.name
                 commitMessage.text = commitList[position].commit.commitMessage
                 commitDate.text = commitList[position].commit.committer.date
-                //todo comments list
+                //todo populate comments list -> comments adapter done!
             }
 
         }
 
         override fun getItemCount(): Int = commitList.size
 
+    }
+
+    inner class CommentsAdapter(
+        private val commentsList: List<CommentNetworkEntity>
+    ) : RecyclerView.Adapter<CommentsAdapter.CommentListViewHolder>() {
+
+        inner class CommentListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        }
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentListViewHolder {
+            return CommentListViewHolder(
+                CommentsItemBinding
+                    .inflate(LayoutInflater.from(parent.context), parent, false)
+                    .root
+            )
+        }
+
+        override fun onBindViewHolder(holder: CommentListViewHolder, position: Int) {
+            CommentsItemBinding.bind(holder.itemView).apply {
+                commentAuthor.text = commentsList[position].user.name
+                commentMessage.text = commentsList[position].message
+            }
+        }
+
+        override fun getItemCount(): Int = commentsList.size
     }
 }
