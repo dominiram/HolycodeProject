@@ -61,7 +61,7 @@ class UserReposFragment : BaseFragment() {
                     Toast.makeText(
                         context,
                         resources.getString(R.string.error_get_user_repos),
-                        Toast.LENGTH_SHORT
+                        Toast.LENGTH_LONG
                     ).show()
                     (activity as MainActivity).hideProgressBar()
                 }

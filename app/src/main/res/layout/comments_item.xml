@@ -12,8 +12,6 @@
         <TextView
             android:id="@+id/commentAuthorLabel"
             style="@style/textViewUserRepoLeft"
-            android:layout_width="100dp"
-            android:layout_height="30dp"
             android:text="@string/comment_author"
             app:layout_constraintBottom_toBottomOf="@+id/commentAuthor"
             app:layout_constraintLeft_toLeftOf="parent"

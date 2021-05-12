@@ -3,11 +3,13 @@ package app.naum.myapplication.repository
 import app.naum.myapplication.models.UserModel
 import app.naum.myapplication.networking.SearchUserNetworkMapper
 import app.naum.myapplication.networking.UserService
+import app.naum.myapplication.networking.entities.CommentNetworkEntity
 import app.naum.myapplication.networking.entities.CommitDetailsNetworkEntity
 import app.naum.myapplication.networking.entities.UserRepoNetworkEntity
 import app.naum.myapplication.utils.DataState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import org.w3c.dom.Comment
 
 class UserRepository constructor(
     private val service: UserService,
@@ -36,7 +38,10 @@ class UserRepository constructor(
             }
         }
 
-    suspend fun getCommits(user: String, repo: String): Flow<DataState<List<CommitDetailsNetworkEntity>>> =
+    suspend fun getCommits(
+        user: String,
+        repo: String
+    ): Flow<DataState<List<CommitDetailsNetworkEntity>>> =
         flow {
             emit(DataState.Loading)
             try {
@@ -46,4 +51,10 @@ class UserRepository constructor(
                 emit(DataState.Error(e))
             }
         }
+
+    suspend fun getComments(user: String, repo: String, commitHash: String)
+            : Flow<List<CommentNetworkEntity>?> = flow {
+        val comments = service.getComments(user, repo, commitHash)
+        emit(comments)
+    }
 }

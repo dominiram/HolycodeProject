@@ -1,5 +1,6 @@
 package app.naum.myapplication.networking
 
+import app.naum.myapplication.networking.entities.CommentNetworkEntity
 import app.naum.myapplication.networking.entities.CommitDetailsNetworkEntity
 import app.naum.myapplication.networking.entities.UserInfoNetworkEntity
 import app.naum.myapplication.networking.entities.UserRepoNetworkEntity
@@ -18,4 +19,11 @@ interface UserService {
         @Path("user") user: String,
         @Path("repo") repo: String
     ): List<CommitDetailsNetworkEntity>
+
+    @GET("repos/{user}/{repo}/commits/{hash}/comments")
+    suspend fun getComments(
+        @Path("user") user: String,
+        @Path("repo") repo: String,
+        @Path("hash") hash: String
+    ): List<CommentNetworkEntity>?
 }

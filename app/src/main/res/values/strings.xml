@@ -4,13 +4,13 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_username">Enter username</string>
     <string name="button_search_user">Search user</string>
-    <string name="error_get_user_info">An error occurred while trying to get the user</string>
+    <string name="error_get_user_info">An error occurred while trying to get the user! Maybe this user doesn\'t exist</string>
     <string name="progress_bar_image_description">Progress bar description</string>
     <string name="you_cant_go_back">You can\'t go back, this is the first view</string>
     <string name="user_details_name_label">"Name: </string>
     <string name="user_details_company_label">"Company: </string>
     <string name="user_repos">User repos</string>
-    <string name="error_get_user_repos">An error occurred while trying to get user repos!</string>
+    <string name="error_get_user_repos">An error occurred while trying to get user repos! Maybe this user hasn\'t got any repos</string>
     <string name="user_repo_label">Repo name:</string>
     <string name="user_repo_url">Repo url:</string>
     <string name="user_repo_description">Repo description:</string>
@@ -20,6 +20,6 @@
     <string name="committer">Committer:</string>
     <string name="commit_message">Commit message:</string>
     <string name="commit_date">Commit date:</string>
-    <string name="error_get_commits">An error occured while trying to get commits</string>
+    <string name="error_get_commits">An error occurred while trying to get commits! Maybe this repo hasn\'t got any commits</string>
     <string name="comment_author">Comment author:</string>
 </resources>

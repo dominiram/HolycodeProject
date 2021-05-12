@@ -32,6 +32,7 @@ class CommitDetailsFragment : BaseFragment() {
     private val viewModel: CommitDetailsViewModel by viewModels()
     private var _binding: FragmentCommitDetailsBinding? = null
     private val binding get() = _binding!!
+    private var comments: MutableMap<Int, List<CommentNetworkEntity>?> = mutableMapOf()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,20 +67,22 @@ class CommitDetailsFragment : BaseFragment() {
                 is DataState.Loading -> (activity as MainActivity).showProgressBar()
 
                 is DataState.Success -> {
-                    populateList(it.data)
+                    it.data
+                    comments = viewModel.commentsList
+                    Log.d(TAG, "subscribeToObservables: comments = $comments")
+                    populateList(it.data, comments)
                     (activity as MainActivity).hideProgressBar()
                 }
             }
         })
     }
 
-    private fun populateList(commits: List<CommitDetailsNetworkEntity>) {
-        for (commit in commits)
-            Log.d(TAG, "populateList: commit = $commit")
-        binding.commitList
+    private fun populateList(commits: List<CommitDetailsNetworkEntity>,
+                             comments: MutableMap<Int, List<CommentNetworkEntity>?>) {
+        Log.d(TAG, "populateList: comments = $comments")
 
         binding.commitList.layoutManager = LinearLayoutManager(context)
-        binding.commitList.adapter = CommitListAdapter(commits)
+        binding.commitList.adapter = CommitListAdapter(commits, comments)
         binding.commitList.addItemDecoration(
             DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         )
@@ -95,7 +98,8 @@ class CommitDetailsFragment : BaseFragment() {
     }
 
     inner class CommitListAdapter(
-        private val commitList: List<CommitDetailsNetworkEntity>
+        private val commitList: List<CommitDetailsNetworkEntity>,
+        private val comments: MutableMap<Int, List<CommentNetworkEntity>?>
     ) : RecyclerView.Adapter<CommitListAdapter.CommitListViewHolder>() {
 
         inner class CommitListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -115,7 +119,17 @@ class CommitDetailsFragment : BaseFragment() {
                 committer.text = commitList[position].commit.committer.name
                 commitMessage.text = commitList[position].commit.commitMessage
                 commitDate.text = commitList[position].commit.committer.date
-                //todo populate comments list -> comments adapter done!
+
+                Log.d(TAG, "onBindViewHolder: commentsList = $comments")
+                commentsList.layoutManager = LinearLayoutManager(context)
+                commentsList.adapter = comments[position]?.let {
+                    CommentsAdapter(
+                        it
+                    )
+                }
+                commentsList.addItemDecoration(
+                    DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+                )
             }
 
         }
@@ -141,6 +155,8 @@ class CommitDetailsFragment : BaseFragment() {
 
         override fun onBindViewHolder(holder: CommentListViewHolder, position: Int) {
             CommentsItemBinding.bind(holder.itemView).apply {
+                Log.d(TAG, "onBindViewHolder: author = ${commentsList[position].user.name}")
+                Log.d(TAG, "onBindViewHolder: message = ${commentsList[position].message}")
                 commentAuthor.text = commentsList[position].user.name
                 commentMessage.text = commentsList[position].message
             }

@@ -3,6 +3,7 @@ package app.naum.myapplication.networking.entities
 import com.google.gson.annotations.SerializedName
 
 data class CommitDetailsNetworkEntity(
+    val sha: String,
     val commit: Commit
 )
 
@@ -10,8 +11,7 @@ data class Commit(
     val author: Author,
     val committer: Committer,
     @SerializedName("message")
-    val commitMessage: String,
-    val comments: List<Comment>
+    val commitMessage: String
 )
 
 data class Author(
@@ -21,14 +21,4 @@ data class Author(
 data class Committer(
     val name: String,
     val date: String
-)
-
-data class Comment(
-    val user: CommitMessageAuthor,
-    @SerializedName("body")
-    val message: String
-)
-
-data class CommitMessageAuthor(
-    val login: String
 )
