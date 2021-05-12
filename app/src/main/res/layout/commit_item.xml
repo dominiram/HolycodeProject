@@ -68,16 +68,30 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/commitMessage" />
 
+        <TextView
+            android:id="@+id/commentsSectionLabel"
+            style="@style/textViewUserRepoRight"
+            android:layout_marginStart="@dimen/margin_side_xlarge"
+            android:layout_marginEnd="@dimen/margin_side_xlarge"
+            android:background="@android:color/holo_blue_light"
+            android:text="@string/comment_section"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/commitDateLabel" />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:visibility="visible"
             android:id="@+id/commentsList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_top_small"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/commitDate" />
+            app:layout_constraintTop_toBottomOf="@+id/commentsSectionLabel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

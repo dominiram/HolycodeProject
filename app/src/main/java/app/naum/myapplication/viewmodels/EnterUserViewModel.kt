@@ -1,5 +1,6 @@
 package app.naum.myapplication.viewmodels
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -19,6 +20,7 @@ EnterUserViewModel
     constructor(
         private val searchUserRepository: UserRepository
     ): ViewModel() {
+    private val TAG = "EnterUserViewModel"
     private val mutableUserState: MutableLiveData<DataState<UserModel>> = MutableLiveData()
     val userState: LiveData<DataState<UserModel>>
         get() = mutableUserState

@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:tools="http://schemas.android.com/tools"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    app:cardBackgroundColor="@android:color/holo_purple">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/margin_top_small">
 
         <TextView
             android:id="@+id/commentAuthorLabel"
             style="@style/textViewUserRepoLeft"
             android:text="@string/comment_author"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/commentAuthor"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/commentAuthor" />
@@ -20,6 +23,7 @@
         <TextView
             android:id="@+id/commentAuthor"
             style="@style/textViewUserRepoRight"
+            android:textColor="@color/black"
             app:layout_constraintLeft_toRightOf="@+id/commentAuthorLabel"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,6 +32,7 @@
             android:id="@+id/commentMessageLabel"
             style="@style/textViewUserRepoLeft"
             android:text="@string/committer"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/commentMessage"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="@+id/commentMessage" />
@@ -35,6 +40,7 @@
         <TextView
             android:id="@+id/commentMessage"
             style="@style/textViewUserRepoRight"
+            android:textColor="@color/black"
             app:layout_constraintLeft_toRightOf="@+id/commentAuthorLabel"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/commentAuthor" />

@@ -22,4 +22,5 @@
     <string name="commit_date">Commit date:</string>
     <string name="error_get_commits">An error occurred while trying to get commits! Maybe this repo hasn\'t got any commits</string>
     <string name="comment_author">Comment author:</string>
+    <string name="comment_section">Comments section:</string>
 </resources>
